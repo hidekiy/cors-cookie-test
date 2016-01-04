@@ -9,11 +9,11 @@ var express = require('express'),
 	var app = express();
 
 	app.use(cookieParser());
-	app.use(bodyParser());
-	app.use(morgan());
+	app.use(bodyParser.urlencoded({extended: false}));
+	app.use(morgan('combined'));
 
 	app.options('/post', function (req, res) {
-		res.set('Access-Control-Allow-Origin', 'https://dl.dropboxusercontent.com');
+		res.set('Access-Control-Allow-Origin', req.get('origin'));
 		res.set('Access-Control-Allow-Methods', 'GET, POST');
 		res.send({ok: true});
 	});
@@ -22,19 +22,17 @@ var express = require('express'),
 		var data = req.body.data;
 		console.log('data', data);
 
-		res.set('Access-Control-Allow-Origin', 'https://dl.dropboxusercontent.com');
+		res.set('Access-Control-Allow-Origin', req.get('origin'));
 		res.set('Access-Control-Allow-Credentials', 'true');
 		res.cookie('state', data, {expires: new Date(Date.now() + 1000 * 3600 * 24), httpOnly: true});
 		res.send({ok: true});
 	});
 
 	app.get('/get', function (req, res) {
-		res.set('Access-Control-Allow-Origin', 'https://dl.dropboxusercontent.com');
+		res.set('Access-Control-Allow-Origin', req.get('origin'));
 		res.set('Access-Control-Allow-Credentials', 'true');
 		res.send({state: req.cookies.state});
 	});
-
-	app.listen(process.env.PORT || 3000, function () {
-		console.log('Listening on %j', this.address());
-	});
+	
+	module.exports = app;
 }());

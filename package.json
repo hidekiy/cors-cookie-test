@@ -7,8 +7,18 @@
 		"cookie-parser":"",
 		"body-parser":""
 	},
+	"devDependencies": {
+		"jshint": "",
+		"mocha": "",
+		"supertest": ""
+	},
 	"engines":{
 		"node":"x",
 		"npm":"x"
+	},
+	"scripts": {
+		"pretest": "jshint .",
+		"test": "mocha",
+		"start": "node server.js"
 	}
 }
