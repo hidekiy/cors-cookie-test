@@ -1,4 +1,3 @@
-/*jslint node: true*/
 /*global describe, it*/
 'use strict';
 var chai = require('chai'),
