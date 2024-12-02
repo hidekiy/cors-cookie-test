@@ -9,7 +9,7 @@
 	},
 	"devDependencies": {
 		"jshint": "^2.13.6",
-		"mocha": "^10.2.0",
+		"mocha": "^11.0.0",
 		"chai": "^4.3.7",
 		"supertest": "^7.0.0"
 	},
