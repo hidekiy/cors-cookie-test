@@ -1,7 +1,5 @@
-/*global describe, it*/
 'use strict';
-var chai = require('chai'),
-	app = require('../app'),
+var app = require('../app'),
 	request = require('supertest');
 
 describe('app', function () {
