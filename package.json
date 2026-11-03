@@ -8,10 +8,10 @@
 		"body-parser": "^2.0.0"
 	},
 	"devDependencies": {
-		"eslint": "^10.0.0",
-		"mocha": "^12.0.0",
-		"chai": "^6.0.0",
-		"supertest": "^7.0.0"
+		"eslint": "10.14.0",
+		"mocha": "12.0.3",
+		"chai": "6.3.0",
+		"supertest": "7.3.1"
 	},
 	"engines": {
 		"node": "^26.0.0",
